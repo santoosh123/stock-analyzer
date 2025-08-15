@@ -4,7 +4,7 @@ st.title("cars price prediction")
 import pickle
 
 # Load the model
-with open('car_pred_model.pkl', 'rb') as f:
+with open('car_pred_model', 'rb') as f:
     model = pickle.load(f)
 
 col1, col2,col3 = st.columns(3)
@@ -44,7 +44,8 @@ if st.button("Get Price in lakhs"):
     
 
     price = model.predict([input_car])[0]
-    
+    if price < 0:
+        price = 10000
 
 
     st.header(round(price,2))
