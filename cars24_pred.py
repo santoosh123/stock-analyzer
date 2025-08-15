@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 st.title("cars price prediction")
-cars_df=pd.read_csv("cars24-car-price.csv")
 import pickle
 
 # Load the model
