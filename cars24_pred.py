@@ -4,8 +4,8 @@ st.title("cars price prediction")
 import pickle
 
 # Load the model
-with open('lr_model.pkl', 'rb') as f:
-    lr = pickle.load(f)
+with open('car_pred_model.pkl', 'rb') as f:
+    car_pred_model = pickle.load(f)
 
 col1, col2,col3 = st.columns(3)
 
@@ -41,12 +41,10 @@ if st.button("Get Price in lakhs"):
     encoded_fuel_type = encode_dict['fuel_type'][fuel_type]
     encoded_transmission_type = encode_dict['transmission_type'][transmission_type]
     input_car=[year,km_driven,mileage,engine,max_power,encoded_fuel_type,encoded_transmission_type,seats]
-    with open('sc.pkl', 'rb') as f:
-        sc = pickle.load(f)
+    
 
-    input_car_scaled = sc.transform([input_car])
-    price = lr.predict(input_car_scaled)[0]
-    price = max(price, 10000)
+    price = car_pred_model.predict(input_car)[0]
+    
 
 
     st.header(round(price,2))
