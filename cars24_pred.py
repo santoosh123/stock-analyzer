@@ -16,7 +16,7 @@ fuel_type = col1.selectbox("Select the fuel type",
 engine = col1.slider("Set the Engine Power",
                      100, 5000, step=100)
 km_driven = col1.slider("Set the km_driven",
-                     500, 380000, step=500)
+                     500, 300000, step=500)
 
 transmission_type = col2.selectbox("Select the transmission type",
                                    ["Manual", "Automatic"])
@@ -26,7 +26,7 @@ seats = col2.selectbox("Enter the number of seats",
 year = col2.slider("Set the year",
                      2010, 2025, step=1)
 mileage=col3.slider("Set the mileage",
-                     10, 25, step=1)
+                     10, 22, step=1)
 max_power=col3.slider("Set the max_power",
                      30, 100, step=1)
 ## Encoding Categorical features
@@ -35,7 +35,7 @@ encode_dict = {
     "fuel_type": {'Diesel': 0, 'Petrol': 3, 'LPG': 2, 'Electric': 1},
     "transmission_type": {'Manual': 1, 'Automatic': 0}
 }
-if st.button("Get Price"):
+if st.button("Get Price in lakhs"):
     # predict here
 
     encoded_fuel_type = encode_dict['fuel_type'][fuel_type]
