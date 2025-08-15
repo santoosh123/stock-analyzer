@@ -5,7 +5,7 @@ import pickle
 
 # Load the model
 with open('car_pred_model.pkl', 'rb') as f:
-    car_pred_model = pickle.load(f)
+    model = pickle.load(f)
 
 col1, col2,col3 = st.columns(3)
 
@@ -43,7 +43,7 @@ if st.button("Get Price in lakhs"):
     input_car=[year,km_driven,mileage,engine,max_power,encoded_fuel_type,encoded_transmission_type,seats]
     
 
-    price = car_pred_model.predict(input_car)[0]
+    price = model.predict([input_car])[0]
     
 
 
