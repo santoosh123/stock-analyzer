@@ -46,6 +46,8 @@ if st.button("Get Price in lakhs"):
 
     input_car_scaled = sc.transform([input_car])
     price = lr.predict(input_car_scaled)[0]
+    price = max(price, 10000)
+
 
     st.header(round(price,2))
 
